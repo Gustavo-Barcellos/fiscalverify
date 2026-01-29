@@ -258,8 +258,8 @@ export default function Home() {
                 +50 PMEs já reduziram 90% do tempo de fechamento
               </h2>
               <p className="text-base text-[#4B5563]">
-                "Finalmente conseguimos fechar o mês sem virar noites. A
-                FiscalVerify nos deu visibilidade e confiança para crescer."
+                &quot;Finalmente conseguimos fechar o mês sem virar noites. A
+                FiscalVerify nos deu visibilidade e confiança para crescer.&quot;
               </p>
               <p className="text-sm font-semibold text-[#1D3557]">
                 Juliana P. • Sócia de escritório contábil digital

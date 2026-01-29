@@ -84,7 +84,7 @@ export default function LeadForm() {
       );
       setValues(initialValues);
       setErrors({});
-    } catch (error) {
+    } catch {
       setStatus("error");
       setMessage("Falha ao conectar. Verifique sua internet e tente novamente.");
     }
