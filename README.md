@@ -54,6 +54,8 @@ npm install
 npm run dev
 ```
 
+> Nota: o comando `npm run dev` força o bundler Webpack para evitar crashes do Turbopack observados no ambiente atual.
+
 ### Testes
 
 ```sh
