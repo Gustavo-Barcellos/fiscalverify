@@ -38,11 +38,26 @@ Este repositório está em fase inicial de construção do produto.
 * Node.js LTS
 * npm
 
+### Variáveis de ambiente
+
+Crie um arquivo `.env.local` com as credenciais do Supabase para gravar leads:
+
+```env
+SUPABASE_URL= https://<seu-projeto>.supabase.co
+SUPABASE_ANON_KEY= <sua-chave-anon>
+```
+
 ### Rodar localmente (quando aplicável)
 
 ```sh
 npm install
 npm run dev
+```
+
+### Testes
+
+```sh
+npm test
 ```
 
 ---
