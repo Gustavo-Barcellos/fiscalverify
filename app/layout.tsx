@@ -1,22 +1,39 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://fiscalverify.vercel.app";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://fiscalverify.com.br"),
+  metadataBase: new URL(siteUrl),
   title: "FiscalVerify | Conciliação fiscal em minutos",
   description:
     "Concilie extratos e NF-es em minutos com a FiscalVerify. Reduza erros, evite multas e ganhe tempo com relatórios automáticos.",
+  keywords: [
+    "conciliação fiscal",
+    "upload de extratos",
+    "automatização contábil",
+    "relatórios fiscais",
+    "SaaS contábil",
+  ],
+  alternates: {
+    canonical: siteUrl,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     title: "FiscalVerify | Conciliação fiscal em minutos",
     description:
       "Transforme horas de planilhas em minutos de upload. Conciliação automática e relatórios prontos para o fechamento mensal.",
-    url: "https://fiscalverify.com.br",
+    url: siteUrl,
     siteName: "FiscalVerify",
     images: [
       {
-        url: "/og-fiscalverify.png",
-        width: 1536,
-        height: 1024,
+        url: "/og-fiscalverify.svg",
+        width: 1200,
+        height: 630,
         alt: "FiscalVerify - conciliação fiscal em minutos",
       },
     ],
@@ -28,7 +45,7 @@ export const metadata: Metadata = {
     title: "FiscalVerify | Conciliação fiscal em minutos",
     description:
       "Concilie extratos e NF-es em minutos com a FiscalVerify e reduza o esforço do fechamento mensal.",
-    images: ["/og-fiscalverify.png"],
+    images: ["/og-fiscalverify.svg"],
   },
 };
 
