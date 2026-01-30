@@ -38,11 +38,28 @@ Este repositório está em fase inicial de construção do produto.
 * Node.js LTS
 * npm
 
+### Variáveis de ambiente
+
+Crie um arquivo `.env.local` com as credenciais do Supabase para gravar leads. Um modelo está disponível em `.env.example`:
+
+```env
+SUPABASE_URL=https://<seu-projeto>.supabase.co
+SUPABASE_ANON_KEY=<sua-chave-anon>
+```
+
 ### Rodar localmente (quando aplicável)
 
 ```sh
 npm install
 npm run dev
+```
+
+> Nota: o comando `npm run dev` força o bundler Webpack para evitar crashes do Turbopack observados no ambiente atual.
+
+### Testes
+
+```sh
+npm test
 ```
 
 ---
