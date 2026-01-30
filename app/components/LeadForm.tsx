@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { captchaChallenge } from "@/lib/captcha";
 import { validateLeadInput } from "@/lib/leadValidation";
 
 type LeadFormValues = {
@@ -8,6 +9,7 @@ type LeadFormValues = {
   email: string;
   consent: boolean;
   companyWebsite: string;
+  captcha: string;
 };
 
 type LeadFormErrors = Partial<Record<keyof LeadFormValues, string>>;
@@ -19,6 +21,7 @@ const initialValues: LeadFormValues = {
   email: "",
   consent: false,
   companyWebsite: "",
+  captcha: "",
 };
 
 export default function LeadForm() {
@@ -165,6 +168,30 @@ export default function LeadForm() {
           value={values.companyWebsite}
           onChange={handleChange}
         />
+      </div>
+
+      <div className="grid gap-4">
+        <label className="text-sm font-semibold text-[#1D3557]" htmlFor="captcha">
+          Verificação antispam: {captchaChallenge.question}
+        </label>
+        <input
+          id="captcha"
+          name="captcha"
+          type="text"
+          inputMode="numeric"
+          autoComplete="off"
+          className="w-full rounded-xl border border-[#D6DEE8] bg-white px-4 py-3 text-base text-[#343A40] shadow-sm transition-all duration-200 ease-out hover:border-[#b9c6d8] focus:border-[#1D3557] focus:outline-none focus:ring-2 focus:ring-[#1D3557]/20"
+          placeholder="Digite a resposta"
+          value={values.captcha}
+          onChange={handleChange}
+          aria-invalid={errors.captcha ? "true" : "false"}
+          aria-describedby={errors.captcha ? "captcha-error" : undefined}
+        />
+        {errors.captcha && (
+          <p className="text-sm text-red-600" id="captcha-error">
+            {errors.captcha}
+          </p>
+        )}
       </div>
 
       <div className="space-y-3">
