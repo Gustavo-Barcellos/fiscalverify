@@ -14,9 +14,9 @@ export const metadata: Metadata = {
     siteName: "FiscalVerify",
     images: [
       {
-        url: "/og-fiscalverify.svg",
-        width: 1200,
-        height: 630,
+        url: "/og-fiscalverify.png",
+        width: 1536,
+        height: 1024,
         alt: "FiscalVerify - conciliação fiscal em minutos",
       },
     ],
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: "FiscalVerify | Conciliação fiscal em minutos",
     description:
       "Concilie extratos e NF-es em minutos com a FiscalVerify e reduza o esforço do fechamento mensal.",
-    images: ["/og-fiscalverify.svg"],
+    images: ["/og-fiscalverify.png"],
   },
 };
 
