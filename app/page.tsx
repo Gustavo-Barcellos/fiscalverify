@@ -115,17 +115,17 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#F5F7FA] text-[#343A40]">
       <header className="border-b border-[#E4EAF2] bg-white">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-6">
-          <div className="flex items-center gap-3 text-lg font-semibold text-[#1D3557]">
-            <Image
-              src="/logo-fiscalverify.png"
-              alt="FiscalVerify"
-              width={200}
-              height={50}
-              className="h-10 w-auto"
-              priority
-            />
-          </div>
+          <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-6">
+            <div className="flex items-center gap-3 text-lg font-semibold text-[#1D3557]">
+              <Image
+                src="/logo-fiscalverify.png"
+                alt="FiscalVerify"
+                width={200}
+                height={50}
+                className="h-10 w-auto"
+                priority
+              />
+            </div>
           <a
             href="#formulario"
             className="hidden rounded-full border border-[#E37400] px-5 py-2 text-sm font-semibold text-[#E37400] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-[#E37400] hover:text-white hover:shadow-lg md:inline-flex"
@@ -273,6 +273,14 @@ export default function Home() {
               </p>
             </div>
             <div className="grid gap-4 rounded-2xl bg-white p-6 text-center shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg">
+              <Image
+                src="/globe.svg"
+                alt="Ilustração de globo com dados fiscais"
+                width={120}
+                height={120}
+                className="mx-auto h-20 w-20"
+                loading="lazy"
+              />
               <div>
                 <p className="text-4xl font-semibold text-[#1D3557]">36h</p>
                 <p className="text-sm text-[#6B7280]">Economizadas por mês</p>
