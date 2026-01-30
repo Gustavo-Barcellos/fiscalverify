@@ -13,6 +13,8 @@ test("handleSubscribe rejects invalid captcha", async () => {
     {
       submitLeadFn: async () => ({ status: "success" }),
       getConfig: () => ({ url: "https://example.supabase.co", anonKey: "key" }),
+      verifyCaptchaFn: () => false,
+      captchaToken: "token",
     }
   );
 
@@ -30,6 +32,8 @@ test("handleSubscribe returns success for valid submission", async () => {
     {
       submitLeadFn: async () => ({ status: "success" }),
       getConfig: () => ({ url: "https://example.supabase.co", anonKey: "key" }),
+      verifyCaptchaFn: () => true,
+      captchaToken: "token",
     }
   );
 
@@ -56,6 +60,8 @@ test("handleSubscribe short-circuits honeypot", async () => {
         return { status: "success" };
       },
       getConfig: () => ({ url: "https://example.supabase.co", anonKey: "key" }),
+      verifyCaptchaFn: () => true,
+      captchaToken: "token",
     }
   );
 

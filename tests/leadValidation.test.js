@@ -8,7 +8,7 @@ test("validateLeadInput returns errors for missing fields", () => {
   assert.equal(errors.name, "Informe seu nome completo.");
   assert.equal(errors.email, "Insira um e-mail válido.");
   assert.equal(errors.consent, "Você precisa concordar para continuar.");
-  assert.equal(errors.captcha, "Responda corretamente a verificação antispam.");
+  assert.equal(errors.captcha, "Responda a verificação antispam.");
 });
 
 test("validateLeadInput passes for valid fields", () => {
@@ -16,7 +16,7 @@ test("validateLeadInput passes for valid fields", () => {
     name: "Maria Silva",
     email: "maria@empresa.com",
     consent: true,
-    captcha: "7",
+    captcha: "10",
   });
 
   assert.deepEqual(errors, {});

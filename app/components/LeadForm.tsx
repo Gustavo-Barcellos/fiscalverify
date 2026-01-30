@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { captchaChallenge } from "@/lib/captcha";
+import { useCallback, useEffect, useState } from "react";
 import { validateLeadInput } from "@/lib/leadValidation";
 
 type LeadFormValues = {
@@ -29,6 +28,25 @@ export default function LeadForm() {
   const [errors, setErrors] = useState<LeadFormErrors>({});
   const [status, setStatus] = useState<FormStatus>("idle");
   const [message, setMessage] = useState<string>("");
+  const [captchaQuestion, setCaptchaQuestion] = useState<string>("");
+  const [captchaLoading, setCaptchaLoading] = useState<boolean>(true);
+
+  const fetchCaptcha = useCallback(async () => {
+    setCaptchaLoading(true);
+    try {
+      const response = await fetch("/api/captcha");
+      const payload = (await response.json()) as { question?: string };
+      setCaptchaQuestion(payload.question ?? "");
+    } catch {
+      setCaptchaQuestion("");
+    } finally {
+      setCaptchaLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchCaptcha();
+  }, [fetchCaptcha]);
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -87,9 +105,11 @@ export default function LeadForm() {
       );
       setValues(initialValues);
       setErrors({});
+      fetchCaptcha();
     } catch {
       setStatus("error");
       setMessage("Falha ao conectar. Verifique sua internet e tente novamente.");
+      fetchCaptcha();
     }
   };
 
@@ -172,7 +192,8 @@ export default function LeadForm() {
 
       <div className="grid gap-4">
         <label className="text-sm font-semibold text-[#1D3557]" htmlFor="captcha">
-          Verificação antispam: {captchaChallenge.question}
+          Verificação antispam:{" "}
+          {captchaLoading ? "Carregando..." : captchaQuestion}
         </label>
         <input
           id="captcha"
