@@ -100,7 +100,7 @@ export default function LeadForm() {
           id="name"
           name="name"
           type="text"
-          className="w-full rounded-xl border border-[#D6DEE8] bg-white px-4 py-3 text-base text-[#343A40] shadow-sm focus:border-[#1D3557] focus:outline-none focus:ring-2 focus:ring-[#1D3557]/20"
+          className="w-full rounded-xl border border-[#D6DEE8] bg-white px-4 py-3 text-base text-[#343A40] shadow-sm transition-all duration-200 ease-out hover:border-[#b9c6d8] focus:border-[#1D3557] focus:outline-none focus:ring-2 focus:ring-[#1D3557]/20"
           placeholder="Ex.: Mariana Souza"
           value={values.name}
           onChange={handleChange}
@@ -122,7 +122,7 @@ export default function LeadForm() {
           id="email"
           name="email"
           type="email"
-          className="w-full rounded-xl border border-[#D6DEE8] bg-white px-4 py-3 text-base text-[#343A40] shadow-sm focus:border-[#1D3557] focus:outline-none focus:ring-2 focus:ring-[#1D3557]/20"
+          className="w-full rounded-xl border border-[#D6DEE8] bg-white px-4 py-3 text-base text-[#343A40] shadow-sm transition-all duration-200 ease-out hover:border-[#b9c6d8] focus:border-[#1D3557] focus:outline-none focus:ring-2 focus:ring-[#1D3557]/20"
           placeholder="voce@empresa.com.br"
           value={values.email}
           onChange={handleChange}
@@ -170,7 +170,7 @@ export default function LeadForm() {
       <div className="space-y-3">
         <button
           type="submit"
-          className="flex w-full items-center justify-center rounded-full bg-[#E37400] px-6 py-3 text-base font-semibold text-white shadow-lg transition hover:bg-[#cc6600] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E37400]"
+          className="flex w-full items-center justify-center rounded-full bg-[#E37400] px-6 py-3 text-base font-semibold text-white shadow-lg transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-[#cc6600] hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E37400]"
           disabled={status === "loading"}
         >
           {status === "loading" ? "Enviando..." : "Quero acesso prioritário"}

@@ -117,14 +117,14 @@ export default function Home() {
       <header className="border-b border-[#E4EAF2] bg-white">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-6">
           <div className="flex items-center gap-3 text-lg font-semibold text-[#1D3557]">
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#EAF1FA]">
+            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#EAF1FA] shadow-sm transition-transform duration-300 ease-out hover:-translate-y-0.5">
               <span className="text-xl">⬆️</span>
             </span>
             FiscalVerify
           </div>
           <a
             href="#formulario"
-            className="hidden rounded-full border border-[#E37400] px-5 py-2 text-sm font-semibold text-[#E37400] transition hover:bg-[#E37400] hover:text-white md:inline-flex"
+            className="hidden rounded-full border border-[#E37400] px-5 py-2 text-sm font-semibold text-[#E37400] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-[#E37400] hover:text-white hover:shadow-lg md:inline-flex"
           >
             Quero acesso
           </a>
@@ -134,8 +134,8 @@ export default function Home() {
       <main>
         <section className="bg-white">
           <div className="mx-auto grid w-full max-w-6xl items-center gap-12 px-6 py-16 lg:grid-cols-[1.1fr_0.9fr] lg:py-24">
-            <div className="space-y-6">
-              <span className="inline-flex items-center gap-2 rounded-full bg-[#EAF1FA] px-4 py-2 text-sm font-semibold text-[#1D3557]">
+            <div className="space-y-6 reveal-on-load">
+              <span className="inline-flex items-center gap-2 rounded-full bg-[#EAF1FA] px-4 py-2 text-sm font-semibold text-[#1D3557] shadow-sm">
                 Conciliação fiscal em minutos
               </span>
               <h1 className="text-4xl font-semibold leading-tight text-[#1D3557] sm:text-5xl">
@@ -149,13 +149,13 @@ export default function Home() {
               <div className="flex flex-col gap-4 sm:flex-row">
                 <a
                   href="#formulario"
-                  className="inline-flex items-center justify-center rounded-full bg-[#E37400] px-6 py-3 text-base font-semibold text-white shadow-lg transition hover:bg-[#cc6600]"
+                  className="inline-flex items-center justify-center rounded-full bg-[#E37400] px-6 py-3 text-base font-semibold text-white shadow-lg transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-[#cc6600] hover:shadow-xl"
                 >
                   Comece agora – teste grátis
                 </a>
                 <a
                   href="#como-funciona"
-                  className="inline-flex items-center justify-center rounded-full border border-[#1D3557] px-6 py-3 text-base font-semibold text-[#1D3557] transition hover:bg-[#1D3557] hover:text-white"
+                  className="inline-flex items-center justify-center rounded-full border border-[#1D3557] px-6 py-3 text-base font-semibold text-[#1D3557] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-[#1D3557] hover:text-white hover:shadow-lg"
                 >
                   Ver como funciona
                 </a>
@@ -164,22 +164,25 @@ export default function Home() {
                 Sem cartão de crédito • Cancelamento instantâneo
               </p>
             </div>
-            <div className="relative">
+            <div className="relative reveal-on-load reveal-delay-200">
               <div className="absolute -left-6 -top-6 h-20 w-20 rounded-full bg-[#E37400]/10" />
               <Image
                 src="/hero-illustration.svg"
                 alt="Profissional analisando relatórios fiscais no laptop"
                 width={520}
                 height={420}
-                className="relative z-10 w-full"
+                className="relative z-10 w-full float-slow"
                 priority
               />
             </div>
           </div>
         </section>
 
-        <section className="mx-auto w-full max-w-6xl px-6 py-16" id="beneficios">
-          <div className="mb-10 max-w-3xl space-y-4">
+        <section
+          className="mx-auto w-full max-w-6xl scroll-mt-28 px-6 py-16"
+          id="beneficios"
+        >
+          <div className="mb-10 max-w-3xl space-y-4 reveal-on-load">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#2E7D32]">
               Benefícios
             </p>
@@ -195,7 +198,7 @@ export default function Home() {
             {benefits.map((benefit) => (
               <div
                 key={benefit.title}
-                className="flex gap-4 rounded-2xl border border-[#E4EAF2] bg-white p-6 shadow-sm"
+                className="flex gap-4 rounded-2xl border border-[#E4EAF2] bg-white p-6 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[#cbd6e4] hover:shadow-lg"
               >
                 <div className="mt-1 flex h-12 w-12 items-center justify-center rounded-xl bg-[#F5F7FA]">
                   {benefit.icon}
@@ -213,9 +216,9 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-white" id="como-funciona">
+        <section className="bg-white scroll-mt-28" id="como-funciona">
           <div className="mx-auto w-full max-w-6xl px-6 py-16">
-            <div className="mb-10 max-w-3xl space-y-4">
+            <div className="mb-10 max-w-3xl space-y-4 reveal-on-load">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#E37400]">
                 Como funciona
               </p>
@@ -231,7 +234,7 @@ export default function Home() {
               {steps.map((step, index) => (
                 <div
                   key={step.title}
-                  className="rounded-2xl border border-[#E4EAF2] bg-[#F9FBFF] p-6"
+                  className="rounded-2xl border border-[#E4EAF2] bg-[#F9FBFF] p-6 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[#cbd6e4] hover:shadow-lg"
                 >
                   <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#1D3557] text-base font-semibold text-white">
                     {index + 1}
@@ -250,7 +253,7 @@ export default function Home() {
 
         <section className="mx-auto w-full max-w-6xl px-6 py-16">
           <div className="grid gap-8 rounded-3xl border border-[#E4EAF2] bg-gradient-to-r from-[#F9FBFF] via-white to-[#F5F7FA] p-10 lg:grid-cols-[1.2fr_0.8fr]">
-            <div className="space-y-4">
+            <div className="space-y-4 reveal-on-load">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#2E7D32]">
                 Prova social
               </p>
@@ -265,7 +268,7 @@ export default function Home() {
                 Juliana P. • Sócia de escritório contábil digital
               </p>
             </div>
-            <div className="grid gap-4 rounded-2xl bg-white p-6 text-center shadow-sm">
+            <div className="grid gap-4 rounded-2xl bg-white p-6 text-center shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg">
               <div>
                 <p className="text-4xl font-semibold text-[#1D3557]">36h</p>
                 <p className="text-sm text-[#6B7280]">Economizadas por mês</p>
@@ -282,10 +285,10 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-[#1D3557]" id="formulario">
+        <section className="bg-[#1D3557] scroll-mt-28" id="formulario">
           <div className="mx-auto w-full max-w-6xl px-6 py-16 text-white">
             <div className="grid gap-10 lg:grid-cols-[1fr_0.9fr]">
-              <div className="space-y-6">
+              <div className="space-y-6 reveal-on-load">
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#FCD34D]">
                   Lista VIP
                 </p>
@@ -302,7 +305,7 @@ export default function Home() {
                   <li>✔ Conteúdos sobre LGPD e compliance fiscal</li>
                 </ul>
               </div>
-              <div className="rounded-3xl bg-white p-8 text-[#343A40] shadow-xl">
+              <div className="rounded-3xl bg-white p-8 text-[#343A40] shadow-xl transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-2xl">
                 <LeadForm />
               </div>
             </div>
