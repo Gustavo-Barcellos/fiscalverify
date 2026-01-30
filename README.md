@@ -40,11 +40,11 @@ Este repositório está em fase inicial de construção do produto.
 
 ### Variáveis de ambiente
 
-Crie um arquivo `.env.local` com as credenciais do Supabase para gravar leads:
+Crie um arquivo `.env.local` com as credenciais do Supabase para gravar leads. Um modelo está disponível em `.env.example`:
 
 ```env
-SUPABASE_URL= https://<seu-projeto>.supabase.co
-SUPABASE_ANON_KEY= <sua-chave-anon>
+SUPABASE_URL=https://<seu-projeto>.supabase.co
+SUPABASE_ANON_KEY=<sua-chave-anon>
 ```
 
 ### Rodar localmente (quando aplicável)
