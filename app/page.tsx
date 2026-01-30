@@ -117,10 +117,14 @@ export default function Home() {
       <header className="border-b border-[#E4EAF2] bg-white">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-6">
           <div className="flex items-center gap-3 text-lg font-semibold text-[#1D3557]">
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#EAF1FA] shadow-sm transition-transform duration-300 ease-out hover:-translate-y-0.5">
-              <span className="text-xl">⬆️</span>
-            </span>
-            FiscalVerify
+            <Image
+              src="/logo-fiscalverify.png"
+              alt="FiscalVerify"
+              width={200}
+              height={50}
+              className="h-10 w-auto"
+              priority
+            />
           </div>
           <a
             href="#formulario"
@@ -167,10 +171,10 @@ export default function Home() {
             <div className="relative reveal-on-load reveal-delay-200">
               <div className="absolute -left-6 -top-6 h-20 w-20 rounded-full bg-[#E37400]/10" />
               <Image
-                src="/hero-illustration.svg"
-                alt="Profissional analisando relatórios fiscais no laptop"
-                width={520}
-                height={420}
+                src="/hero-illustration.png"
+                alt="Upload e conciliação fiscal automática"
+                width={1536}
+                height={1024}
                 className="relative z-10 w-full float-slow"
                 priority
               />
