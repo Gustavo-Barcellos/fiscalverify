@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { validateLeadInput } from "@/lib/leadValidation";
 
 type LeadFormValues = {
@@ -8,6 +8,7 @@ type LeadFormValues = {
   email: string;
   consent: boolean;
   companyWebsite: string;
+  captcha: string;
 };
 
 type LeadFormErrors = Partial<Record<keyof LeadFormValues, string>>;
@@ -19,6 +20,7 @@ const initialValues: LeadFormValues = {
   email: "",
   consent: false,
   companyWebsite: "",
+  captcha: "",
 };
 
 export default function LeadForm() {
@@ -26,6 +28,25 @@ export default function LeadForm() {
   const [errors, setErrors] = useState<LeadFormErrors>({});
   const [status, setStatus] = useState<FormStatus>("idle");
   const [message, setMessage] = useState<string>("");
+  const [captchaQuestion, setCaptchaQuestion] = useState<string>("");
+  const [captchaLoading, setCaptchaLoading] = useState<boolean>(true);
+
+  const fetchCaptcha = useCallback(async () => {
+    setCaptchaLoading(true);
+    try {
+      const response = await fetch("/api/captcha");
+      const payload = (await response.json()) as { question?: string };
+      setCaptchaQuestion(payload.question ?? "");
+    } catch {
+      setCaptchaQuestion("");
+    } finally {
+      setCaptchaLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchCaptcha();
+  }, [fetchCaptcha]);
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -84,9 +105,11 @@ export default function LeadForm() {
       );
       setValues(initialValues);
       setErrors({});
+      fetchCaptcha();
     } catch {
       setStatus("error");
       setMessage("Falha ao conectar. Verifique sua internet e tente novamente.");
+      fetchCaptcha();
     }
   };
 
@@ -165,6 +188,31 @@ export default function LeadForm() {
           value={values.companyWebsite}
           onChange={handleChange}
         />
+      </div>
+
+      <div className="grid gap-4">
+        <label className="text-sm font-semibold text-[#1D3557]" htmlFor="captcha">
+          Verificação antispam:{" "}
+          {captchaLoading ? "Carregando..." : captchaQuestion}
+        </label>
+        <input
+          id="captcha"
+          name="captcha"
+          type="text"
+          inputMode="numeric"
+          autoComplete="off"
+          className="w-full rounded-xl border border-[#D6DEE8] bg-white px-4 py-3 text-base text-[#343A40] shadow-sm transition-all duration-200 ease-out hover:border-[#b9c6d8] focus:border-[#1D3557] focus:outline-none focus:ring-2 focus:ring-[#1D3557]/20"
+          placeholder="Digite a resposta"
+          value={values.captcha}
+          onChange={handleChange}
+          aria-invalid={errors.captcha ? "true" : "false"}
+          aria-describedby={errors.captcha ? "captcha-error" : undefined}
+        />
+        {errors.captcha && (
+          <p className="text-sm text-red-600" id="captcha-error">
+            {errors.captcha}
+          </p>
+        )}
       </div>
 
       <div className="space-y-3">
