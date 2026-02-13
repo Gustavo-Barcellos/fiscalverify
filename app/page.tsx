@@ -118,7 +118,7 @@ export default function Home() {
           <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-6">
             <div className="flex items-center gap-3 text-lg font-semibold text-[#1D3557]">
               <Image
-                src="/logo-fiscalverify.png"
+                src="/publiclogo-fiscalverify.png"
                 alt="FiscalVerify"
                 width={200}
                 height={50}
@@ -171,7 +171,7 @@ export default function Home() {
             <div className="relative reveal-on-load reveal-delay-200">
               <div className="absolute -left-6 -top-6 h-20 w-20 rounded-full bg-[#E37400]/10" />
               <Image
-                src="/hero-illustration.png"
+                src="/publichero-illustration.png"
                 alt="Upload e conciliação fiscal automática"
                 width={1536}
                 height={1024}
